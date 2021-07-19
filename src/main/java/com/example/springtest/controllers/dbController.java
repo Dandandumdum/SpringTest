@@ -6,11 +6,11 @@ import com.example.springtest.methods.SqlMethods;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-
+@CrossOrigin
 @RestController
 public class dbController {
     private SqlMethods sqlMethods = new SqlMethods();
-    
+
     @RequestMapping(value = "/api/getCustomerById/{id}", method = RequestMethod.GET) //Must rework endpoints according to spec
     public String searchByCustomerId(@PathVariable String id){
         Customer customer = sqlMethods.selectSpecificCustomer(id);
@@ -56,7 +56,7 @@ public class dbController {
     }
     @RequestMapping(value="/api/updateCustomer/{id}", method = RequestMethod.PUT)
     public Boolean updateCustomer(@PathVariable String id, @RequestBody Customer customer ){
-        return sqlMethods.updateCustomer(sqlMethods.selectSpecificCustomer(id),customer);
+        return sqlMethods.updateCustomer(customer);
     }
 
 

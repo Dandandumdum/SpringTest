@@ -162,7 +162,7 @@ public class SqlMethods {
     //Updates database with a Customer Object based upon a new Customer Objects details, input into methods parameters
     //,update based upon CustomerId.
     //HTTP PUT or PATCH
-    public Boolean updateCustomer(Customer updateCustomer, Customer newCustomerDetails) {
+    public Boolean updateCustomer( Customer newCustomerDetails) {
         Boolean success = false;
         try {
             conn = DriverManager.getConnection(URL);
@@ -177,11 +177,11 @@ public class SqlMethods {
             preparedStatement.setString(5, newCustomerDetails.getPostalCode());
             preparedStatement.setString(6, newCustomerDetails.getPhoneNumber());
             preparedStatement.setString(7, newCustomerDetails.getEmail());
-            preparedStatement.setString(8, updateCustomer.getId());
+            preparedStatement.setString(8, newCustomerDetails.getId());
             int result = preparedStatement.executeUpdate();
             success = (result != 0);
 
-            System.out.println("Customer added");
+            System.out.println("Customer updated");
 
         } catch (Exception ex) {
             System.out.println("Something went wrong...");

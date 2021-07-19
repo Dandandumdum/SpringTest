@@ -1,8 +1,6 @@
 package com.example.springtest.customers;
 
-import org.springframework.web.bind.annotation.ResponseBody;
 
-@ResponseBody
 public class Customer {
     private String Id;
     private String firstName;

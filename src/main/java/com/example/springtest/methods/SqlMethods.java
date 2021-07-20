@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-public class SqlMethods {
+public class SqlMethods {//Extra comment for new branch
     String URL = "jdbc:sqlite::resource:Chinook_Sqlite.sqlite";
     Connection conn = null;
     public ArrayList<Customer> selectAllCustomers() {
